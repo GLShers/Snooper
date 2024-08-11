@@ -1,0 +1,6 @@
+https://warslab.ru/20/vk-oauth-app-standalone/
+https://oauth.vk.com/blank.html#access_token=vk1.a.Ag2htVkc3T1_XGlfwdnnQ0UGxc-R6U6ZKeas408PAUIVU40NKOm50lpGM3EtrtJoQA_ULaYfSMcAZ0Mov3_afP4JSQJJMH4Ia-ms8nduhx3A-aOGsOfbA42nt9XtYvxjIeHuzUK3UI7or8mo1c9YS1_uxsqQnGhg9pKruE5E8ZURQ5x6mXpm2qPjyGAVwk2Mg-xRVEF8ls5MA0ZybhS78g&expires_in=0&user_id=178463923
+https://vkhost.github.io/
+https://dev.vk.com/ru/admin/apps-list
+https://id.vk.com/about/business/go/accounts/124484/apps
+https://dev.vk.com/ru
