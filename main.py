@@ -1,24 +1,29 @@
 import requests
 
-def search_vk_by_phone(phone_number, access_token):
-    url = 'https://api.vk.com/method/users.search'
-    params = {
-        'q': phone_number,
-        'access_token': access_token,
-        'v': '5.131'  # Версия API
-    }
+def validate_phone_number(api_key, phone_number):
+    # URL для проверки номера
+    url = f"https://api.numlookupapi.com/v1/validate/{phone_number}?apikey={api_key}"
     
-    response = requests.get(url, params=params)
-    data = response.json()
+    # Выполнение GET-запроса
+    response = requests.get(url)
     
-    if 'response' in data:
-        return data['response']
+    # Проверка статуса ответа
+    if response.status_code == 200:
+        try:
+            data = response.json()
+            return data
+        except requests.exceptions.JSONDecodeError:
+            return {"error": "Failed to decode JSON response"}
     else:
-        return None
+        return {"error": f"Request failed with status code {response.status_code}, response text: {response.text}"}
 
-# Пример использования
-if __name__ == "__main__":
-    phone = '89210060271'
-    token = 'cf6ac10fcf6ac10fcf6ac10fa2cc71aaceccf6acf6ac10fa9d208b6c6c7ac8d23b98dd0'
-    result = search_vk_by_phone(phone, token)
-    print(result)
+# Ваш API-ключ
+api_key = "num_live_HQWbCfNDhO42LEBZNKe3vIpfPE5FgNfaD489DHfT"
+
+# Номер телефона для проверки
+phone_number = "+7"+input("Input number +7")
+
+# Вызов функции и вывод результата
+result = validate_phone_number(api_key, phone_number)
+print("Номер телефона:" , result['number'], "\nСтрана:", result['country_name'], "\nЛокация:", result['location'],
+       "\nОператор сотовой связи:",result['carrier'])
